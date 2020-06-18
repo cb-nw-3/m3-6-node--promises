@@ -2,9 +2,8 @@
 // ---------------------------------
 
 function getAddressPosition(address) {
-    const requestObj = {
-        key: '<MY_API_KEY>',
-        q: address
-    };
-
+  const requestObj = {
+    key: '<MY_API_KEY>',
+    q: address
+  };
 }
