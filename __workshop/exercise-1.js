@@ -11,7 +11,7 @@ function getIssPosition() {
 		.then((response) => {
             // makes that info accessible in this function
             const issPosition = JSON.parse(response);
-            console.log(issPosition)
+            // console.log(issPosition)
             
 			return {
 				lat: issPosition.iss_position.latitude,
