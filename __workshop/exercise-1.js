@@ -10,7 +10,7 @@ function getIssPosition() {
     return request('http://api.open-notify.org/iss-now.json')
 
         .then(response => {
-            //parse as JSON
+            //parse as JSON becuase the source is .json
             const issLocation = JSON.parse(response);
             return {
                 lat: issLocation.iss_position.latitude,
