@@ -23,7 +23,7 @@ compareToTen(8)
     .then(result => console.log(result))
     .catch(error => console.log(error))
 
-    
+
 // Exercise 0.1
 // ------------
 // Write two functions that use Promises that you can chain!
@@ -33,27 +33,42 @@ compareToTen(8)
 
 const arrayOfWords = ['cucumber', 'tomatos', 'avocado']
 const complicatedArray = ['cucumber', 44, true]
-  
+
 const makeAllCaps = (array) => {
-    
+    myPromise = new Promise((resolve, reject) => {
+
+        if (array.every(arrayWord => typeof arrayWord === 'string')) {
+            resolve(array.map(arrayWord => arrayWord.toUpperCase()));
+        } else {
+            reject('Error: Not all items are strings!')
+        }
+    })
+    return myPromise
 }
 
 const sortWords = (array) => {
-    
-} 
+    myNewPromise = new Promise((resolve, reject) => {
+
+        if (array.every(arrayWord => typeof arrayWord === 'string')) {
+            resolve(array.sort());
+        } else {
+            reject('Error: Something went wrong with sorting words.')
+        }
+    })
+    return myNewPromise
+}
 
 // Calling (testing)
 makeAllCaps(arrayOfWords)
-.then(sortWords)
-.then((result) => console.log(result))
-.catch(error => console.log(error))
+    .then(sortWords)
+    .then((result) => console.log(result))
+    .catch(error => console.log(error))
 
 makeAllCaps(complicatedArray)
-.then(sortWords)
-.then((result) => console.log(result))
-.catch(error => console.log(error))
+    .then(sortWords)
+    .then((result) => console.log(result))
+    .catch(error => console.log(error))
 
-    
-    
-    
-    
+
+
+
