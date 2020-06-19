@@ -16,7 +16,8 @@ function getIssPosition() {
     .then((res) => res.json())
     .then((data) =>
       console.log('Latitude: ', data.latitude, 'Longitude:', data.longitude)
-    );
+    )
+    .catch((err) => console.log('Error: ', err));
 }
 getIssPosition();
 
@@ -34,7 +35,8 @@ function getIssPositionRequest() {
         '2nd Longitude:',
         data.longitude
       )
-    );
+    )
+    .catch((err) => console.log('Error: ', err));
 }
 getIssPositionRequest();
 
