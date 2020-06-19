@@ -6,8 +6,9 @@
 //https://wheretheiss.at/w/developer
 
 // Returns the current position of the ISS
-const fetch = require('node-fetch');
 
+// Using fetch
+const fetch = require('node-fetch');
 function getIssPosition() {
   url = 'https://api.wheretheiss.at/v1/satellites/25544';
 
@@ -17,8 +18,25 @@ function getIssPosition() {
       console.log('Latitude: ', data.latitude, 'Longitude:', data.longitude)
     );
 }
-
 getIssPosition();
+
+//Using Request
+const rp = require('request-promise');
+function getIssPositionRequest() {
+  url = 'https://api.wheretheiss.at/v1/satellites/25544';
+
+  rp(url)
+    .then((res) => JSON.parse(res))
+    .then((data) =>
+      console.log(
+        '2nd Latitude: ',
+        data.latitude,
+        '2nd Longitude:',
+        data.longitude
+      )
+    );
+}
+getIssPositionRequest();
 
 //This one works on the browser
 //function getIssPosition() {
