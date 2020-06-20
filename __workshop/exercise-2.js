@@ -15,10 +15,10 @@ const getAddressPosition = (address) => {
             if (location.status.code == 200) {
                 if (location.results.length > 0) {
                     let place = location.results[0];
-                    console.log('Formatted -->', place.formatted);
-                    console.log('Geometry -->', place.geometry);
-                    console.log('Timezone -->', place.annotations.timezone.name);
-                    return place;
+                    // console.log('Formatted -->', place.formatted);
+                    // console.log('Geometry -->', place.geometry);
+                    // console.log('Timezone -->', place.annotations.timezone.name);
+                    return place.geometry;
                 }
             } else {
                 console.log('error', location.status.message);
