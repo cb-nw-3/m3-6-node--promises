@@ -5,9 +5,12 @@
   "author": "Scott Morin <scott@journeyedu.co>",
   "license": "MIT",
   "dependencies": {
+    "@turf/distance": "^6.0.1",
+    "@turf/turf": "^5.1.6",
     "dotenv": "^8.2.0",
     "fahrenheit-to-celsius": "^1.0.0",
     "fetch": "^1.1.0",
+    "geo-distance": "^0.2.0",
     "node-fetch": "^2.6.0",
     "nodemon": "^2.0.2",
     "opencage-api-client": "^0.7.1",
