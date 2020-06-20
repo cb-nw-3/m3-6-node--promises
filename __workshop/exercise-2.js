@@ -12,6 +12,7 @@ function getAddressPosition(address) {
         key: process.env.OPENCAGE_API_KEY,
         q: address
     };
+    console.log(requestObj.key);
     //forward geocode (address to coordinates)
     return opencage.geocode(requestObj)
         .then(data => {
