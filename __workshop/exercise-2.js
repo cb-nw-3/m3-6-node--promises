@@ -26,11 +26,9 @@ function getAddressPosition(address) {
         console.log("error", data.status.message);
       }
     })
-    .then((data) => {
-      console.log(data);
-      return data;
-    })
     .catch((error) => console.log("Error:", error));
 }
 
-getAddressPosition("HaYarkon St 205, Tel Aviv-Yafo, Israel");
+getAddressPosition("HaYarkon St 205, Tel Aviv-Yafo, Israel").then((result) =>
+  console.log(result)
+);
