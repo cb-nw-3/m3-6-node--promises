@@ -17,13 +17,14 @@ function getIssPosition() {
                 lng: issLocation.iss_position.longitude,
             }
         })
-        //data is the previous object with values lat and lng
-        .then(data => {
-            console.log(data);
-            return data;
-        })
+     
         .catch(error => console.log('Error: ', error));
 }       
 
-getIssPosition();
-hello
+//data is the previous object with values lat and lng
+getIssPosition().then(data => {
+            console.log(data);
+            return data;
+        });
+//hello
+//isomorphic-fetch
