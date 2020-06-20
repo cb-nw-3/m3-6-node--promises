@@ -34,19 +34,24 @@ const arrayOfWords = ["cucumber", "tomatos", "avocado"];
 const complicatedArray = ["cucumber", 44, true];
 
 const makeAllCaps = (array) => {
-  myPromise1 = new Promise((resolve, reject) => {
-    array.map((word) => {
-      if (typeof word === "string") {
-        resolve(word.toUpperCase());
-      } else {
-        reject(word + " is not a string, error!");
-      }
-    });
+  return new Promise((resolve, reject) => {
+    if (array.every((word) => typeof word === "string")) {
+      resolve(array.map((word) => word.toUpperCase()));
+    } else {
+      reject("Error: Invalid type.");
+    }
   });
-  return myPromise1;
 };
 
-const sortWords = (array) => {};
+const sortWords = (array) => {
+  return new Promise((resolve, reject) => {
+    if (array.every((word) => typeof word === "string")) {
+      resolve(array.sort());
+    } else {
+      reject("Error: Invalid type.");
+    }
+  });
+};
 
 // Calling (testing)
 makeAllCaps(arrayOfWords)
