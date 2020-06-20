@@ -13,7 +13,7 @@ function getAddressPosition(address) {
     .geocode(requestObj)
     .then((data) => {
       if (data.status.code == 200) {
-        console.log("THE RESULTS ARRAY IS", data.results[0].geometry);
+        console.log("THE LAT and LNG ARE", data.results[0].geometry);
         return data.results[0].geometry;
       } else {
         console.log("error", data.status.message);

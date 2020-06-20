@@ -18,4 +18,8 @@ function getIssPosition() {
     });
 }
 
-getIssPosition().then((res) => console.log(res));
+// getIssPosition().then((res) => console.log(res));
+
+module.exports = {
+  getIssPosition,
+};

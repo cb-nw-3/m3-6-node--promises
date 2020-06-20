@@ -7,11 +7,11 @@ const { getCurrentTemperatureAtPosition } = require("./exercise-3");
 function getCurrentTemperature(address) {
   getAddressPosition(address)
     .then((data) => {
-      getCurrentTemperatureAtPosition(data);
+      return getCurrentTemperatureAtPosition(data);
     })
     .catch((error) => {
       console.log("exercise 4 Error", error);
     });
 }
 
-getCurrentTemperature("Alaska");
+getCurrentTemperature("Huston Texas");
