@@ -14,7 +14,7 @@
 
 - Node was designed to be able to process many concurrent requests at the same time.
 - This is done by running code in a single thread.
-- It creates a separate thread for anything I/O.
+- It creates a separate thread for anything I/O. (I/O means Input/Output)
     - read/write to disk
     - send/receive from the network
     - get user input from the keyboard
@@ -128,6 +128,8 @@ fs.readFile("file.json", function (err, val) {
         }
     }
 });
+
+so this means that it'll wait for file.json finishes loading to do the function (err,val). It's like an event listener.
 ```
 
 <!-- 
