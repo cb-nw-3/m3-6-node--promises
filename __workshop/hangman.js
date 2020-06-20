@@ -1,16 +1,9 @@
 const inquirer = require("inquirer");
+const { getRandomWord } = require("./wordBank");
+
 let keyword = "";
 let tries = 0;
 let wordState = [];
-
-keyword.split("").forEach((letter, index) => {
-  let currentEntry = {
-    index,
-    letter,
-    discovered: false,
-  };
-  wordState.push(currentEntry);
-});
 
 //console.log(keyword);
 //console.log(wordState);
@@ -60,9 +53,7 @@ function askQuestion() {
         ) {
           console.log(`Congrats! The word was indeed ${showProgress()}`);
           askPlayAgain();
-        }
-
-        if (howManyHits > 0) {
+        } else if (howManyHits > 0) {
           console.log(
             `Nice, I found ${howManyHits} ${answerString}'s in the word`
           );
@@ -101,7 +92,8 @@ function showProgress() {
 }
 
 function gameSetup() {
-  keyword = "testimony";
+  keyword = getRandomWord();
+  console.log(keyword);
   tries = 0;
   wordState = [];
 
