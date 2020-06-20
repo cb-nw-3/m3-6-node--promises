@@ -7,7 +7,7 @@ const opencage = require("opencage-api-client");
 
 function getAddressPosition(address) {
   const requestObj = {
-    key: "<API_KEY>",
+    key: process.env.OPENCAGE_API_KEY,
     q: address,
   };
 
