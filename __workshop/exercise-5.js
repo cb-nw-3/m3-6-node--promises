@@ -9,18 +9,31 @@ const fetch = require('node-fetch');
 const opencage = require('opencage-api-client');
 require('dotenv').config();
 
-function getDistanceFromIss() {
-  const origin1 = getAddressPosition(
-    '5 Avenue Anatole France, 75007 Paris, France '
-  );
+function getDistanceFromIss(address) {
+  const origin1 = getAddressPosition(address);
   const destiny1 = getIssPosition();
-  Promise.all([origin1, destiny1]).then(([result1, result2]) => {
-    console.log(result1);
-    console.log(result2);
-  });
+  const altitude1 = getIssAltitude();
+  Promise.all([origin1, destiny1, altitude1]).then(
+    ([result1, result2, result3]) => {
+      const from = turf.point(result1);
+      const to = turf.point(result2);
+      const options = { units: 'kilometers' };
+      const distanceBetweenToPointsinEarthkm = turf.distance(from, to, options);
+      const IssAltitudeKm = result3;
+      console.log(
+        'The distance between ' +
+          address +
+          ' and the ISS is ' +
+          Math.sqrt(
+            distanceBetweenToPointsinEarthkm ** 2 + IssAltitudeKm ** 2
+          ) +
+          ' km'
+      );
+    }
+  );
 }
 
-getDistanceFromIss();
+getDistanceFromIss('5 Avenue Anatole France, 75007 Paris, France ');
 
 function getAddressPosition(address) {
   const requestObj = {
@@ -62,6 +75,18 @@ function getIssPosition() {
       result.push(data.longitude);
       //   console.log(result);
       return result;
+    })
+    .catch((err) => console.log('Error: ', err));
+}
+
+function getIssAltitude() {
+  url = 'https://api.wheretheiss.at/v1/satellites/25544';
+
+  return fetch(url)
+    .then((res) => res.json())
+    .then((data) => {
+      //   console.log(data);
+      return data.altitude;
     })
     .catch((err) => console.log('Error: ', err));
 }
