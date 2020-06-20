@@ -37,17 +37,22 @@ function getAddressPosition(address) {
     });
 }
 
-const address = '1760 Boulevard Fortin, Laval, QC H7S 1N8';
-getAddressPosition(address);
+module.exports = {
+  getAddressPosition,
+};
 
-const address2 = '37.4396, -122.1864';
-getAddressPosition(address2);
+//I did this to use it in exercise-4
+// const address = '1760 Boulevard Fortin, Laval, QC H7S 1N8';
+// getAddressPosition(address);
 
-const address3 = '38.897957, -77.036560';
-getAddressPosition(address3);
+// const address2 = '37.4396, -122.1864';
+// getAddressPosition(address2);
 
-const address4 = '48.858093, 2.294694';
-getAddressPosition(address4);
+// const address3 = '38.897957, -77.036560';
+// getAddressPosition(address3);
 
-const address5 = '5 Avenue Anatole France, 75007 Paris, France ';
-getAddressPosition(address5);
+// const address4 = '48.858093, 2.294694';
+// getAddressPosition(address4);
+
+// const address5 = '5 Avenue Anatole France, 75007 Paris, France ';
+// getAddressPosition(address5);
