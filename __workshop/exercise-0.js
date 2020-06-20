@@ -23,7 +23,7 @@ compareToTen(8)
     .then(result => console.log(result))
     .catch(error => console.log(error))
 
-    
+
 // Exercise 0.1
 // ------------
 // Write two functions that use Promises that you can chain!
@@ -31,29 +31,35 @@ compareToTen(8)
 // and then the second function, sortWords(), will sort the words in alphabetical order.
 // If the array contains anything but strings, it should throw an error.
 
-const arrayOfWords = ['cucumber', 'tomatos', 'avocado']
+// I can't. I'm sorry. I have to correct the spelling.
+
+const arrayOfWords = ['cucumber', 'tomatoes', 'avocado']
 const complicatedArray = ['cucumber', 44, true]
-  
+
 const makeAllCaps = (array) => {
-    
+    const isString = (value) => typeof value === 'string';
+    firstPromise = new Promise((resolve, reject) => {
+        if (array.every(isString)) {
+            array = array.map(elem => elem.toUpperCase());
+            resolve(array);
+        } else {
+            reject("Nope! Non-string elements detected. System self-destructing.");
+        }
+    })
+    return firstPromise;
 }
 
 const sortWords = (array) => {
-    
-} 
+    return array.sort();
+}
 
 // Calling (testing)
 makeAllCaps(arrayOfWords)
-.then(sortWords)
-.then((result) => console.log(result))
-.catch(error => console.log(error))
+    .then(sortWords)
+    .then((result) => console.log(result))
+    .catch(error => console.log(error))
 
 makeAllCaps(complicatedArray)
-.then(sortWords)
-.then((result) => console.log(result))
-.catch(error => console.log(error))
-
-    
-    
-    
-    
+    .then(sortWords)
+    .then((result) => console.log(result))
+    .catch(error => console.log(error))
