@@ -11,17 +11,17 @@ const getAddressPosition = (address) => {
     };
 
     return opencage.geocode(requestObj)
-        .then(data => {
-            if (data.status.code == 200) {
-                if (data.results.length > 0) {
-                    let place = data.results[0];
+        .then(location => {
+            if (location.status.code == 200) {
+                if (location.results.length > 0) {
+                    let place = location.results[0];
                     console.log('Formatted -->', place.formatted);
                     console.log('Geometry -->', place.geometry);
                     console.log('Timezone -->', place.annotations.timezone.name);
                     return place;
                 }
             } else {
-                console.log('error', data.status.message);
+                console.log('error', location.status.message);
             }
         })
         .catch(error => console.log('error', error.message));

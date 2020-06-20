@@ -12,6 +12,10 @@
         "request-promise": "^4.2.5"
     },
     "scripts": {
+        "dev-e1": "nodemon __workshop/exercise-1.js",
+        "dev-e2": "nodemon __workshop/exercise-2.js",
+        "dev-e3": "nodemon __workshop/exercise-3.js",
+        "dev-e4": "nodemon __workshop/exercise-4.js",
         "dev-e5": "nodemon __workshop/exercise-5.js"
     }
 }
