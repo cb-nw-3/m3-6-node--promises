@@ -3,20 +3,26 @@
 'use strict';
 
 const opencage = require('opencage-api-client');
-require('dotenv').config();
+const dotenv = requiere('dotenv');
 
 function getAddressPosition(address) {
   const requestObj = {
-    key: '253f873d629b49e6a7cbba2072af0d19',
+    key: 'a',
     q: address,
   };
+  console.log(requestObj.q.split(','));
   opencage
     .geocode(requestObj)
     .then((data) => {
-      // console.log(JSON.stringify(data));
+      console.log(data.status.code, data.results.length);
       if (data.status.code == 200 && data.results.length > 0) {
         // 1330 Middle Avenue, Menlo Park, Californie 94025, États-Unis d'Amérique
-        console.log(data.results[0].geometry, requestObj);
+        console.log(
+          'Response: ',
+          data.results[0].formatted,
+          'Request : ',
+          requestObj.q
+        );
       }
     })
     .catch((error) => {
@@ -24,6 +30,8 @@ function getAddressPosition(address) {
     });
 }
 
-// const address = '45,573865, -73.719854';
 const address = '1760 Boulevard Fortin, Laval, QC H7S 1N8';
 getAddressPosition(address);
+
+const address2 = '37.4396, -122.1864';
+getAddressPosition(address2);
