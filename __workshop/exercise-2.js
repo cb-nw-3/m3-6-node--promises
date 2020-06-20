@@ -4,7 +4,7 @@ const opencage = require('opencage-api-client');
 require('dotenv').config()
 const ApiKey = process.env.OPENCAGE_API_KEY
 
-const getAddressPosition = (address) => {
+function getAddressPosition(address) {
     const requestObj = {
         key: ApiKey,
         q: address

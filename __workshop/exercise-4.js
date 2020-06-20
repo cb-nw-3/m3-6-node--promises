@@ -6,8 +6,6 @@ const ApiKey = process.env.DARKSKY_API_KEY
 
 const { getAddressPosition } = require('./exercise-2');
 
-console.log(getAddressPosition('Montreal'))
-
 // Given an address as a string, returns the temperature
 // Use the getCurrentTemperatureAtPosition function
 function getCurrentTemperature(address) {
