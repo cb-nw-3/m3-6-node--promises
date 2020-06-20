@@ -8,7 +8,6 @@ const darksky = new DarkSky(process.env.DARKSKY_API_KEY);
 
 // Given a position (latitude and longitude), returns the position
 function getCurrentTemperatureAtPosition(position) {
-  // const uri = `https://api.darksky.net/forecast/${key}/${position.lat}, ${position.lng}`;
 
   return darksky
     .latitude(position.lat)
