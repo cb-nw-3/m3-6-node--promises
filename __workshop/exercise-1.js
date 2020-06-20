@@ -6,20 +6,24 @@ const request = require("request-promise");
 
 // Returns the current position of the ISS
 function getIssPosition() {
-  request("http://api.open-notify.org/iss-now.json")
-    .then((response) => {
-      //console.log(data);
-      const issData = JSON.parse(response);
-      return {
-        lng: issData.iss_position.longitude,
-        lat: issData.iss_position.latitude,
-      };
-    })
-    .then((data) => {
-      console.log(data);
-      return data;
-    })
-    .catch((error) => console.log("error: ", error));
+  return (
+    request("http://api.open-notify.org/iss-now.json")
+      .then((response) => {
+        //console.log(data);
+        const issData = JSON.parse(response);
+        return {
+          lat: issData.iss_position.latitude,
+          lng: issData.iss_position.longitude,
+        };
+      })
+      // .then((data) => {
+      //   console.log("from ex1: ", data);
+      //   return data;
+      // })
+      .catch((error) => console.log("error: ", error))
+  );
 }
 
-getIssPosition();
+//getIssPosition().then(console.log);
+
+module.exports = { getIssPosition };

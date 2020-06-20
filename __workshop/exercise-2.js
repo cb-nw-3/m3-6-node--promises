@@ -1,6 +1,5 @@
 // Exercise 2 - `getAddressPosition`
 // ---------------------------------
-const request = require("request-promise");
 const opencage = require("opencage-api-client");
 require("dotenv").config();
 
@@ -13,10 +12,12 @@ function getAddressPosition(address) {
     .geocode(requestObj)
     .then((response) => {
       const coordinates = response.results[0].geometry;
-      //console.log(coordinates);
+      //console.log("from ex2: ", coordinates);
       return coordinates;
     })
     .catch((error) => console.log(error));
 }
 
-getAddressPosition("K1A0A9").then(console.log);
+//getAddressPosition("K1A0A9").then(console.log);
+
+module.exports = { getAddressPosition };
