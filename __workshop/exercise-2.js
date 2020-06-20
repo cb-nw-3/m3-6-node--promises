@@ -30,3 +30,4 @@ function getAddressPosition(address) {
 }
 getAddressPosition('1455 Boulevard de Maisonneuve O, Montréal, QC H3G 1M8');
 getAddressPosition('Friedrich-Ebert-Stra\u00dfe 7, 48153 M\u00fcnster, Germany');
+hello
