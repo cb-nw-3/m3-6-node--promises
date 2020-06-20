@@ -3,11 +3,11 @@
 'use strict';
 
 const opencage = require('opencage-api-client');
-const dotenv = requiere('dotenv');
+require('dotenv').config();
 
 function getAddressPosition(address) {
   const requestObj = {
-    key: 'a',
+    key: process.env.OPENCAGE_API_KEY,
     q: address,
   };
   console.log(requestObj.q.split(','));
