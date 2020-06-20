@@ -1,5 +1,5 @@
 const inquirer = require("inquirer");
-const keyword = "hangman";
+let keyword = "";
 let tries = 0;
 let wordState = [];
 
@@ -12,17 +12,6 @@ keyword.split("").forEach((letter, index) => {
   wordState.push(currentEntry);
 });
 
-function showProgress() {
-  let partialReveal = [];
-  wordState.forEach((letterObject) => {
-    if (letterObject.discovered) {
-      partialReveal.push(letterObject.letter);
-    } else {
-      partialReveal.push("_");
-    }
-  });
-  return partialReveal.join("");
-}
 //console.log(keyword);
 //console.log(wordState);
 
@@ -70,7 +59,7 @@ function askQuestion() {
           wordState.every((letterObject) => letterObject.discovered === true)
         ) {
           console.log(`Congrats! The word was indeed ${showProgress()}`);
-          return;
+          askPlayAgain();
         }
 
         if (howManyHits > 0) {
@@ -84,6 +73,7 @@ function askQuestion() {
         }
       } else if (answerString === keyword) {
         console.log("Congratulations! You found the word");
+        askPlayAgain();
       } else {
         console.log("Nope, that was not the secret word!");
         askQuestion();
@@ -91,7 +81,54 @@ function askQuestion() {
     });
   } else {
     console.log(`Out of tries, sorry chump. The word was ${keyword}`);
+    askPlayAgain();
   }
 }
 
+gameSetup();
 askQuestion();
+
+function showProgress() {
+  let partialReveal = [];
+  wordState.forEach((letterObject) => {
+    if (letterObject.discovered) {
+      partialReveal.push(letterObject.letter);
+    } else {
+      partialReveal.push("_");
+    }
+  });
+  return partialReveal.join(" ");
+}
+
+function gameSetup() {
+  keyword = "testimony";
+  tries = 0;
+  wordState = [];
+
+  keyword.split("").forEach((letter, index) => {
+    let currentEntry = {
+      index,
+      letter,
+      discovered: false,
+    };
+    wordState.push(currentEntry);
+  });
+}
+
+function askPlayAgain() {
+  const question = {
+    type: "confirm",
+    name: "playAgain",
+    message: "Do you want to play again?",
+    default: false,
+  };
+
+  inquirer.prompt(question).then((answers) => {
+    if (answers.playAgain) {
+      gameSetup();
+      askQuestion();
+    } else {
+      return;
+    }
+  });
+}
