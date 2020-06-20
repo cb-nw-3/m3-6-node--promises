@@ -11,7 +11,13 @@ function getCurrentTemperatureAtPosition(position) {
     let key = process.env.DARKSKY_API_KEY;
 
     return request(`https://api.darksky.net/forecast/${key}/${position.latitude},${position.longitude}`)
-    
+    .then(data => {
+        const dataObj = JSON.parse(data);
+        
+        //console.log(dataObj.currently.temperature);
+        return temperature = dataObj.currently.temperature;
+            
+    })
 
 }
 
