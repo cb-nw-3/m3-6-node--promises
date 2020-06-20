@@ -30,6 +30,9 @@ function getAddressPosition(address) {
     geocoder.geocode(address)
         .then(response => {
             return {
+                // assume first response is most likely correct location
+                // this is probably pretty frustrating for folks living in other namesake cities
+                // but, well.
                 lat: response[0].latitude,
                 lng: response[0].longitude
             }
@@ -39,3 +42,5 @@ function getAddressPosition(address) {
 }
 
 getAddressPosition("London");
+
+module.exports = getAddressPosition;
