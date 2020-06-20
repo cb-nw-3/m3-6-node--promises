@@ -10,19 +10,26 @@ function getAddressPosition(address) {
     key: process.env.OPENCAGE_API_KEY,
     q: address,
   };
-  console.log(requestObj.q.split(','));
+  const type = requestObj.q.split(',').map((x) => parseFloat(x));
   opencage
     .geocode(requestObj)
     .then((data) => {
-      console.log(data.status.code, data.results.length);
       if (data.status.code == 200 && data.results.length > 0) {
-        // 1330 Middle Avenue, Menlo Park, Californie 94025, États-Unis d'Amérique
-        console.log(
-          'Response: ',
-          data.results[0].formatted,
-          'Request : ',
-          requestObj.q
-        );
+        if (type.some((element) => isNaN(element))) {
+          console.log(
+            'Response: ',
+            data.results[0].geometry,
+            'Request : ',
+            requestObj.q
+          );
+        } else {
+          console.log(
+            'Response: ',
+            data.results[0].formatted,
+            'Request : ',
+            requestObj.q
+          );
+        }
       }
     })
     .catch((error) => {
@@ -35,3 +42,12 @@ getAddressPosition(address);
 
 const address2 = '37.4396, -122.1864';
 getAddressPosition(address2);
+
+const address3 = '38.897957, -77.036560';
+getAddressPosition(address3);
+
+const address4 = '48.858093, 2.294694';
+getAddressPosition(address4);
+
+const address5 = '5 Avenue Anatole France, 75007 Paris, France ';
+getAddressPosition(address5);
