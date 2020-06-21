@@ -24,7 +24,11 @@ const promptUser = () => {
       .then((answer) => {
         let guess = Number(answer.guess);
 
-        if (guess === hiddenNumber) {
+        if (guess > 100 || guess < 0 || Number.isNaN(guess)) {
+          console.log("Invalid input, try again.");
+          userGuesses++;
+          promptUser();
+        } else if (guess === hiddenNumber) {
           console.log("Winner winner chicken dinner!");
           return;
         } else if (guess < hiddenNumber) {
