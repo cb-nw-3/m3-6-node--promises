@@ -13,8 +13,9 @@ function getAddressPosition(address) {
     .geocode(requestObj)
     .then((data) => data.results)
     .then((results) => {
-      console.log("lat: ", results[0].annotations.DMS.lat);
-      console.log("long: ", results[0].annotations.DMS.lng);
+      let lat = results[0].geometry.lat;
+      let lng = results[0].geometry.lng;
+      return { lat, lng };
     })
     .catch((err) => console.log("err: ", err));
 }

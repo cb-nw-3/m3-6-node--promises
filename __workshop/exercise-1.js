@@ -9,19 +9,15 @@ let getUrl = "http://api.open-notify.org/iss-now.json";
 // Returns the current position of the ISS
 function getIssPosition() {
   return rp(getUrl)
-    .then((response) => JSON.parse(response))
-    .then((data) => {
+    .then((response) => {
+      let data = JSON.parse(response);
       return {
         lat: data.iss_position.latitude,
         lng: data.iss_position.longitude,
       };
     })
-    .then((values) => {
-      console.log("values: ", values);
-      return values;
-    })
     .catch((err) => console.log("err: ", err));
 }
-getIssPosition();
+// getIssPosition().then((result) => console.log("result: ", result));
 
 module.exports = { getIssPosition };
