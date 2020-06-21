@@ -38,6 +38,7 @@ If you console.log the the function call, you will not see the result as console
 doesn't wait for the promise to be resolved to execute.
 
 ## Calling APIs
+
 In order to do these exercises, you will need to know more about the [JSON format](https://www.digitalocean.com/community/tutorials/how-to-work-with-json-in-javascript).
 
 ## Exercise 1 - `getIssPosition`
@@ -46,7 +47,7 @@ In order to do these exercises, you will need to know more about the [JSON forma
 2. Complete the code of this function so that it returns the position of the ISS as a `Promise`.
 3. Use the data from `http://api.open-notify.org/iss-now.json` to do your work
 4. The ISS API returns the position keys as `latitude` and `longitude`. Return them as `lat` and `lng` instead.
- 
+
 ## Exercise 2 - `getAddressPosition`
 
 1. Complete the code of this function to return a `Promise` for a lat/lng object
@@ -60,18 +61,18 @@ In order to do these exercises, you will need to know more about the [JSON forma
 
 ## Exercise 3 - `getCurrentTemperatureAtPosition`
 
-  1. Go to [Dark Sky API](https://darksky.net/dev/) and read the documentation
-  2. Signup and get a free API key
-  3. Complete the code of the function. The `position` parameter is an object with `lat` and `lng`.
-  4. Make sure your function only returns a `Promise` for the current temperature (a number) and nothing else
-  
+1. Go to [Dark Sky API](https://darksky.net/dev/) and read the documentation
+2. Signup and get a free API key
+3. Complete the code of the function. The `position` parameter is an object with `lat` and `lng`.
+4. Make sure your function only returns a `Promise` for the current temperature (a number) and nothing else
+
 ## Exercise 4 - `getCurrentTemperature`
 
 While it's useful to get the current temperature for a specific lat/lng, most often we want to provide the name of a place instead.
 
 You already created a function that can do address ==> position, and one that can do position ==> temperature. For this exercise, re-use these two functions to create one that goes directly from address ==> temperature.
 
-You can copy/paste your code from the previous exercises, **or** require them at the top of this file. _Remember to _export_ them from their file, if you plan on _requiring_ them.
+You can copy/paste your code from the previous exercises, **or** require them at the top of this file. _Remember to \_export_ them from their file, if you plan on _requiring_ them.
 
 ## Exercise 5 - `getDistanceFromIss`
 
@@ -82,7 +83,9 @@ One of the functions does address ==> position and the other simply does nothing
 ```js
 // Euclidian distance between two points
 function getDistance(pos1, pos2) {
-    return Math.sqrt(Math.pow(pos1.lat - pos2.lat, 2) + Math.pow(pos1.lng - pos2.lng, 2));
+    return Math.sqrt(
+        Math.pow(pos1.lat - pos2.lat, 2) + Math.pow(pos1.lng - pos2.lng, 2)
+    );
 }
 ```
 
@@ -92,14 +95,14 @@ This exercise will be done in a new file, `guess-the-number.js`.
 
 Using the `inquirer` module, write a program that will play the "guess the number game":
 
-  * Create a random number between 1 and 100. Call it the hidden number
-  * Start with 5 guesses
-  * As long as there are guesses left:
-    * Ask the user for a number between 1 and 100 until they give you one
-    * If they find the hidden number, they win the game. END
-    * Otherwise, tell them whether their guess is lower or higher than the hidden number
-    * Loop back
-  * The user has lost the game. END
+-   Create a random number between 1 and 100. Call it the hidden number
+-   Start with 5 guesses
+-   As long as there are guesses left:
+    -   Ask the user for a number between 1 and 100 until they give you one
+    -   If they find the hidden number, they win the game. END
+    -   Otherwise, tell them whether their guess is lower or higher than the hidden number
+    -   Loop back
+-   The user has lost the game. END
 
 ---
 
@@ -113,5 +116,5 @@ You can skip the step that says "draw the hangman". Instead, simply count 8 gues
 
 To make it more fun, integrate the following functionality:
 
-- Allow players to re-play after they won or lost (`inquirer` has a yes/no type of question)
-- Actually draw the hangman using ASCII art
+-   Allow players to re-play after they won or lost (`inquirer` has a yes/no type of question)
+-   Actually draw the hangman using ASCII art
