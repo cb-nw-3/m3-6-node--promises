@@ -2,7 +2,7 @@
 // -----------------------------------
 const options = {
     uri:
-        "https://api.darksky.net/forecast/8cf6a54d8de9c0cb77dae5efd6ce1383/42,-72",
+        "https://api.darksky.net/forecast/8cf/42,-72",
     headers: {
         "User-Agent": "Request-Promise",
     },
