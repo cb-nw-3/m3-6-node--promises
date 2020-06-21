@@ -18,6 +18,7 @@ function getIssPosition() {
     })
     .catch((err) => console.log("err: ", err));
 }
-// getIssPosition().then((result) => console.log("result: ", result));
+
+getIssPosition();
 
 module.exports = { getIssPosition };
