@@ -27,7 +27,7 @@ const pos1 = rp(options)
 
 const pos2 = function getAddressPosition(address) {
     const requestObj = {
-        key: "b1de27a51e34472db2a062fce31d9a00",
+        key: "b1de27",
         q: address,
     };
     return opencage
