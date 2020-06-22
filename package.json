@@ -6,16 +6,19 @@
     "license": "MIT",
     "dependencies": {
         "dotenv": "^8.2.0",
+        "inquirer": "^7.2.0",
         "nodemon": "^2.0.2",
         "opencage-api-client": "^0.7.1",
         "request": "^2.88.2",
         "request-promise": "^4.2.5"
     },
     "scripts": {
+        "dev-e0": "nodemon __workshop/exercise-0.js",
         "dev-e1": "nodemon __workshop/exercise-1.js",
         "dev-e2": "nodemon __workshop/exercise-2.js",
         "dev-e3": "nodemon __workshop/exercise-3.js",
         "dev-e4": "nodemon __workshop/exercise-4.js",
-        "dev-e5": "nodemon __workshop/exercise-5.js"
+        "dev-e5": "nodemon __workshop/exercise-5.js",
+        "dev-guess": "nodemon __workshop/guess-the-number.js"
     }
 }
