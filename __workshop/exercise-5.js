@@ -20,7 +20,27 @@ function getDistanceFromIss(address) {
       const angleBetweeenPoint1Point2 =
         (360 * curveLength) / (2 * Math.PI * earthRadiusKm);
       console.log('angle', angleBetweeenPoint1Point2);
-      // additionalHeight;
+      console.log('altitude', additionalHeight);
+      console.log('ISS coords', IssCoords);
+      const A =
+        earthRadiusKm * (1 - Math.cos(angleBetweeenPoint1Point2)) +
+        additionalHeight;
+      console.log(
+        'A=',
+        A,
+        'r =',
+        earthRadiusKm,
+        Math.cos(angleBetweeenPoint1Point2)
+      );
+      const B = earthRadiusKm * Math.sin(angleBetweeenPoint1Point2);
+      const DistanceBetweenISSandPoint1 = Math.sqrt(A ** 2 + B ** 2);
+      console.log(
+        'The distance between the ISS and point ' +
+          address +
+          ' is ' +
+          DistanceBetweenISSandPoint1.toFixed(2) +
+          'km'
+      );
     }
   );
 }
