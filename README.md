@@ -43,17 +43,18 @@ In order to do these exercises, you will need to know more about the [JSON forma
 ## Exercise 1 - `getIssPosition`
 
 1. Install the [`request-promise`](https://www.npmjs.com/package/request-promise) module with `yarn`, making sure it's added to `package.json`.
+1.5 ISOMORPHIC FETCH to replace request
 2. Complete the code of this function so that it returns the position of the ISS as a `Promise`.
 3. Use the data from `http://api.open-notify.org/iss-now.json` to do your work
 4. The ISS API returns the position keys as `latitude` and `longitude`. Return them as `lat` and `lng` instead.
- 
+
 ## Exercise 2 - `getAddressPosition`
 
 1. Complete the code of this function to return a `Promise` for a lat/lng object
 2. Use the [OpenCage Data API](https://opencagedata.com/) to do this
     - Sign up for an account (free) and follow the various guides to get started.
     - learning to use an API is the biggest hurdle... if you get stuck, you can peek at the solution. ;)
-    - Look up `dotenv` on NPM. You can install it and reuire it (note that the syntax for this module is slightly different.)
+    - Look up `dotenv` on NPM. You can install it and require it (note that the syntax for this module is slightly different.)
     - Once that is setup, copy the `.env.example` file and rename it `.env`. Then add you API key to it.
 3. Once you have it working, pass it a few address to see what the responses look like.
 4. Make sure to only return an object with lat/lng and not the whole response
