@@ -7,33 +7,25 @@
 const turf = require('@turf/turf');
 const fetch = require('node-fetch');
 const opencage = require('opencage-api-client');
+const earthRadiusKm = 6371;
 require('dotenv').config();
 
 function getDistanceFromIss(address) {
-  const origin1 = getAddressPosition(address);
-  const destiny1 = getIssPosition();
-  const altitude1 = getIssAltitude();
-  Promise.all([origin1, destiny1, altitude1]).then(
-    ([result1, result2, result3]) => {
-      const from = turf.point(result1);
-      const to = turf.point(result2);
-      const options = { units: 'kilometers' };
-      const distanceBetweenToPointsinEarthkm = turf.distance(from, to, options);
-      const IssAltitudeKm = result3;
-      console.log(
-        'The distance between ' +
-          address +
-          ' and the ISS is ' +
-          Math.sqrt(
-            distanceBetweenToPointsinEarthkm ** 2 + IssAltitudeKm ** 2
-          ) +
-          ' km'
-      );
+  const addressCoords = getAddressPosition(address);
+  const IssCoords = getIssPosition();
+  const IssAltitude = getIssAltitude();
+  Promise.all([addressCoords, IssCoords, IssAltitude]).then(
+    ([point1, point2, additionalHeight]) => {
+      const curveLength = getArcLengthOfTwoEarthCoordinates(point1, point2);
+      const angleBetweeenPoint1Point2 =
+        (360 * curveLength) / (2 * Math.PI * earthRadiusKm);
+      console.log('angle', angleBetweeenPoint1Point2);
+      // additionalHeight;
     }
   );
 }
 
-getDistanceFromIss('5 Avenue Anatole France, 75007 Paris, France ');
+getDistanceFromIss('5 Avenue Anatole France, 75007 Paris, France');
 
 function getAddressPosition(address) {
   const requestObj = {
@@ -55,7 +47,7 @@ function getAddressPosition(address) {
           console.log('Not valid coords');
         }
       }
-      //   console.log(response);
+      // console.log(response);
       return response;
     })
     .catch((error) => {
@@ -89,4 +81,21 @@ function getIssAltitude() {
       return data.altitude;
     })
     .catch((err) => console.log('Error: ', err));
+}
+
+function getArcLengthOfTwoEarthCoordinates(coord1, coord2) {
+  // console.log(coord1, coord2);
+  const from = turf.point(coord1);
+  const to = turf.point(coord2);
+  const options = { units: 'kilometers' };
+  const distanceBetweenToPointsinEarthkm = turf.distance(from, to, options);
+  console.log(
+    'The length of the arc (distance ) bettween  ' +
+      coord1 +
+      ' ' +
+      coord2 +
+      ' is: ' +
+      distanceBetweenToPointsinEarthkm
+  );
+  return distanceBetweenToPointsinEarthkm;
 }

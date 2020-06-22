@@ -7,10 +7,13 @@
   "dependencies": {
     "@turf/distance": "^6.0.1",
     "@turf/turf": "^5.1.6",
+    "distance-from": "^1.1.2",
     "dotenv": "^8.2.0",
+    "earth-distance-js": "^1.4.1",
     "fahrenheit-to-celsius": "^1.0.0",
     "fetch": "^1.1.0",
     "geo-distance": "^0.2.0",
+    "jeyo-distans": "^0.2.0",
     "node-fetch": "^2.6.0",
     "nodemon": "^2.0.2",
     "opencage-api-client": "^0.7.1",
