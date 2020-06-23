@@ -25,5 +25,5 @@ function recursive(answer) {
         }!! ${counter} more opportunities. `
       ),
       inquirer.prompt(question).then(recursive))
-    : console.log('YOU WON!!!');
+    : console.log('YOU WON!!!!');
 }
