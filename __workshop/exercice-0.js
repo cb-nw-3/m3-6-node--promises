@@ -14,12 +14,10 @@ const compareToTen = (num) => {
   return myPromise;
 };
 
-// we are creating a function that returns a promise so you can calls the function and handle what the promise results to
+// Calling the Promise
 compareToTen(15)
   .then((result) => console.log(result))
   .catch((error) => console.log(error));
-
-//then and catch take callbacks that will be called when the promise is resolved.
 
 compareToTen(8)
   .then((result) => console.log(result))
@@ -32,29 +30,20 @@ compareToTen(8)
 // and then the second function, sortWords(), will sort the words in alphabetical order.
 // If the array contains anything but strings, it should throw an error.
 
-// const arrayOfWords = ["cucumber", "tomatos", "avocado"];
-// const complicatedArray = ["cucumber", 44, true];
+const arrayOfWords = ["cucumber", "tomatos", "avocado"];
+const complicatedArray = ["cucumber", 44, true];
 
-// const makeAllCaps = (array) => {
-//     return new Promise((resolve, reject) => {
-//         if (array.every(word => typeof word === 'string')) {
-//             resolve(array.map(word.toUppercase()));
-//         } else {}
-//     }
+const makeAllCaps = (array) => {};
 
-// }
+const sortWords = (array) => {};
 
-// }
+// Calling (testing)
+makeAllCaps(arrayOfWords)
+  .then(sortWords)
+  .then((result) => console.log(result))
+  .catch((error) => console.log(error));
 
-// const sortWords = (array) => {};
-
-// // Calling (testing)
-// makeAllCaps(arrayOfWords)
-//   .then(sortWords)
-//   .then((result) => console.log(result))
-//   .catch((error) => console.log(error));
-
-// makeAllCaps(complicatedArray)
-//   .then(sortWords)
-//   .then((result) => console.log(result))
-//   .catch((error) => console.log(error));
+makeAllCaps(complicatedArray)
+  .then(sortWords)
+  .then((result) => console.log(result))
+  .catch((error) => console.log(error));
