@@ -13,6 +13,7 @@
     "fahrenheit-to-celsius": "^1.0.0",
     "fetch": "^1.1.0",
     "geo-distance": "^0.2.0",
+    "inquirer": "^7.2.0",
     "jeyo-distans": "^0.2.0",
     "node-fetch": "^2.6.0",
     "nodemon": "^2.0.2",
