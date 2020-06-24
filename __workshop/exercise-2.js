@@ -26,4 +26,6 @@ function getAddressPosition(address) {
 }
 
 getAddressPosition('1455 Boulevard de Maisonneuve O, Montréal, QC H3G 1M8')
-// getAddressPosition('1859 Gallo Drive, Powell, Ohio, 43065, United States')
+getAddressPosition('1859 Gallo Drive, Powell, Ohio, 43065, United States')
+
+module.exports = { getAddressPosition };
