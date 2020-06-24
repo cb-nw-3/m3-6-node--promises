@@ -18,9 +18,11 @@ function getCurrentTemperatureAtPosition(position) {
         return temperature = dataObj.currently.temperature;
             
     })
+    .catch(error => console.log('error', error.message)
 
 }
 
+//given position
 const position = {
     latitude: 70,
     longitude: 80
