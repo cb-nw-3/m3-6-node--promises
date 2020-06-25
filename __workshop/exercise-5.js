@@ -9,7 +9,7 @@ const { getAddressPosition } = require('./exercise-2');
 function getDistanceFromIss(address) {
   return Promise.all([getIssPosition(), getAddressPosition(address)])
     .then(values => {
-      console.log(getDistance(values[0], values[1]))
+      console.log('distance address - iss', getDistance(values[0], values[1]))
       return getDistance(values[0], values[1])
     })
 }
