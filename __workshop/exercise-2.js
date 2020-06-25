@@ -19,7 +19,7 @@ function getAddressPosition(address) {
       }
     })
     .then(data => {
-      console.log(data)
+      console.log('addressPosition', data)
       return data
     })
     .catch(error => console.log('error', error.message))

@@ -12,7 +12,7 @@ function getCurrentTemperature(address) {
       return getCurrentTemperatureAtPosition(data)
     })
     .then(result => {
-      console.log('result', result);
+      console.log('temperature@position', result);
       return result
     })
     .catch(error => {
