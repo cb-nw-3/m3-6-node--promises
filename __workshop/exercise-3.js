@@ -18,3 +18,5 @@ function getCurrentTemperatureAtPosition(lat, lng) {
 getCurrentTemperatureAtPosition(45.2615, 73.6159).then((result) =>
   console.log(result)
 );
+
+module.exports = { getCurrentTemperatureAtPosition };

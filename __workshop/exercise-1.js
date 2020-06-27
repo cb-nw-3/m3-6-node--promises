@@ -28,3 +28,5 @@ function getIssPosition() {
 }
 
 getIssPosition().then((data) => console.log(data));
+
+module.exports = { getIssPosition };

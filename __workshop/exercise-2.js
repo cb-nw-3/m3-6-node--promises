@@ -29,3 +29,5 @@ function getAddressPosition(address) {
 }
 
 getAddressPosition("7777 Decarie, Montreal, Quebec");
+
+module.exports = { getAddressPosition };
