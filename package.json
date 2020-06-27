@@ -5,9 +5,11 @@
     "author": "Scott Morin <scott@journeyedu.co>",
     "license": "MIT",
     "dependencies": {
+        "an-array-of-english-words": "^2.0.0",
         "dark-sky": "^1.1.5",
         "dark-sky-api": "^0.6.32",
         "dotenv": "^8.2.0",
+        "inquirer": "^7.2.0",
         "nodemon": "^2.0.2",
         "opencage-api-client": "^0.7.1",
         "request": "^2.88.2",
