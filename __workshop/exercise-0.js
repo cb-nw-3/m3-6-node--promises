@@ -14,7 +14,7 @@ const compareToTen = (num) => {
   return myPromise;
 };
 
-// Calling the Promise
+// Calling the Promise with error in case promise rejects
 compareToTen(15)
   .then((result) => console.log(result))
   .catch((error) => console.log(error));
@@ -33,9 +33,26 @@ compareToTen(8)
 const arrayOfWords = ["cucumber", "tomatos", "avocado"];
 const complicatedArray = ["cucumber", 44, true];
 
-const makeAllCaps = (array) => {};
+const makeAllCaps = (array) => {
+  return new Promise((resolve, reject) => {
+    if (array.every((word) => typeof word === "string")) {
+      resolve(array.map((word) => word.toUpperCase()));
+    } else {
+      reject("Error here!");
+    }
+  });
+};
 
-const sortWords = (array) => {};
+const sortWords = (array) => {
+  return new Promise((resolve, reject) => {
+    if (array.every((word) => typeof word === "string")) {
+      array.sort();
+      resolve(array);
+    } else {
+      reject("Error again!");
+    }
+  });
+};
 
 // Calling (testing)
 makeAllCaps(arrayOfWords)
