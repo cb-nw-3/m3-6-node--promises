@@ -33,26 +33,9 @@ compareToTen(8)
 const arrayOfWords = ["cucumber", "tomatos", "avocado"];
 const complicatedArray = ["cucumber", 44, true];
 
-const makeAllCaps = (array) => {
-  promise = new Promise((resolve, reject) => {
-    if (array.every((item) => typeof item === "string")) {
-      resolve(array.map((item) => item.toUpperCase()));
-    } else {
-      reject("item is not a string");
-    }
-  });
-  return promise;
-};
+const makeAllCaps = (array) => {};
 
-const sortWords = (array) => {
-  return new Promise((resolve, reject) => {
-    if (array.every((word) => typeof word === "string")) {
-      resolve(array.sort());
-    } else {
-      reject("items are not strings");
-    }
-  });
-};
+const sortWords = (array) => {};
 
 // Calling (testing)
 makeAllCaps(arrayOfWords)
@@ -60,7 +43,7 @@ makeAllCaps(arrayOfWords)
   .then((result) => console.log(result))
   .catch((error) => console.log(error));
 
-// makeAllCaps(complicatedArray)
-//   .then(sortWords)
-//   .then((result) => console.log(result))
-//   .catch((error) => console.log(error));
+makeAllCaps(complicatedArray)
+  .then(sortWords)
+  .then((result) => console.log(result))
+  .catch((error) => console.log(error));
