@@ -16,6 +16,7 @@ function getAddressPosition(address) {
     .then((data) => {
       if (data.status.code == 200) {
         if (data.results.length > 0) {
+          console.log(data);
           let place = data.results[0];
           return place;
         }
