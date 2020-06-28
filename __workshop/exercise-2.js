@@ -13,24 +13,16 @@ function getAddressPosition(address) {
 
   return opencage
     .geocode(requestObj)
-    .then((data) => {
-      if (data.status.code == 200) {
-        if (data.results.length > 0) {
-          console.log(data);
-          let place = data.results[0];
-          return place;
-        }
-      } else {
-        console.log("error", data.status.message);
+    .then((response) => {
+      let data = JSON.parse(response);
+      if (data.results.length > 0) {
+        return data.results[0].geometry;
       }
     })
-    .then((data) => {
-      console.log(data);
-      return data;
-    })
     .catch((error) => {
-      console.log("error", error.message);
+      console.log(error);
     });
 }
 
-getAddressPosition("London, England");
+// getAddressPosition("london, england").then((res) => console.log(res));
+module.exports = { getAddressPosition };

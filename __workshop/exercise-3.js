@@ -19,9 +19,11 @@ function getCurrentTemperatureAtPosition(position) {
     })
     .catch((err) => console.log(err));
 }
-let position = {
-  lat: 42.3601,
-  lng: -71.0589,
-};
 
-getCurrentTemperatureAtPosition(position).then((res) => console.log(res));
+// let position = {
+//   lat: 42.3601,
+//   lng: -71.0589,
+// };
+// getCurrentTemperatureAtPosition(position).then((res) => console.log(res));
+
+module.exports = { getCurrentTemperatureAtPosition };

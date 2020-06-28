@@ -12,8 +12,8 @@ function getIssPosition() {
     })
     .then((data) => {
       return {
-        lgn: data.longitude,
         lat: data.latitude,
+        lgn: data.longitude,
       };
     })
     .catch((err) => {
@@ -21,4 +21,5 @@ function getIssPosition() {
     });
 }
 
-getIssPosition().then((result) => console.log(result));
+// getIssPosition().then((result) => console.log(result));
+module.exports = { getIssPosition };
