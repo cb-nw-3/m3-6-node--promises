@@ -46,4 +46,3 @@ function getCurrentTemperature(address) {
 
 getCurrentTemperature('100 Peel St Suite 300, Montreal, Quebec H3C 0L8').then((res) => console.log(res));
 getCurrentTemperature('1 Market #500, San Francisco, CA 94105, États-Unis').then((res) => console.log(res));
-

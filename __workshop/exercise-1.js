@@ -4,22 +4,22 @@
 // require the 'request-promise' module.
 const rp = require('request-promise');
 
-
 // Returns the current position of the ISS
 function getIssPosition() {
-    return rp('http://api.open-notify.org/iss-snow.json')
-        .then((resultString) => {
-            return JSON.parse(resultString);
-        })
-        .then((resultObject) => {
+    return rp('http://api.open-notify.org/iss-now.json')
+        .then(res => {
+            const issLocation = JSON.parse(res);
+            // console.log(res);
             return {
-                lat: resultObject.iss_position.latitude,
-                lng: resultObject.iss_position.longitude,
-            };
+                lat: issLocation.iss_position.latitude,
+                lng: issLocation.iss_position.longitude,
+            }
         })
-        .catch(function (err) {
-            return ('Error: ',  err)
-        });
+        .then(data => {
+            // console.log(data);
+            return data;
+        })
+        .catch(err => console.log('Error: ', err));
 }
 
-getIssPosition().then((res) => console.log(res));
+getIssPosition();
