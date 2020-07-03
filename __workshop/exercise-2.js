@@ -22,3 +22,5 @@ function getAddressPosition(address) {
 }
 
 getAddressPosition("Theresienhöhe 11, München");
+
+module.exports = { getAddressPosition };

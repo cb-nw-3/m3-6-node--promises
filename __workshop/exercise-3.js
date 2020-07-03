@@ -6,7 +6,7 @@ const rp = require("request-promise");
 // Given a position (latitude and longitude), returns the position
 function getCurrentTemperatureAtPosition(position) {
   rp(
-    `https://api.darksky.net/forecast/${process.env.DARKSKY_API_KEY}/${position.latitude},${position.longitude}?units=si`
+    `https://api.darksky.net/forecast/${process.env.DARKSKY_API_KEY}/${position.lat},${position.lng}?units=si`
   )
     .then((result) => {
       return JSON.parse(result);
@@ -20,6 +20,8 @@ function getCurrentTemperatureAtPosition(position) {
 }
 
 getCurrentTemperatureAtPosition({
-  latitude: 48.1341651,
-  longitude: 11.5464794,
+  lat: 48.1341651,
+  lng: 11.5464794,
 });
+
+module.exports = { getCurrentTemperatureAtPosition };
