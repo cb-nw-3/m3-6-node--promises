@@ -34,7 +34,7 @@ The exercises below ask you to `return` the output of the Promises. In order to 
 
 You are `return`ing the value, because you will need this functionality in a later exercise.
 
-If you console.log the the function call, you will not see the result as console.log
+If you console.log the function call, you will not see the result as console.log
 doesn't wait for the promise to be resolved to execute.
 
 ## Calling APIs
@@ -53,9 +53,9 @@ In order to do these exercises, you will need to know more about the [JSON forma
 2. Use the [OpenCage Data API](https://opencagedata.com/) to do this
     - Sign up for an account (free) and follow the various guides to get started.
     - learning to use an API is the biggest hurdle... if you get stuck, you can peek at the solution. ;)
-    - Look up `dotenv` on NPM. You can install it and reuire it (note that the syntax for this module is slightly different.)
-    - Once that is setup, copy the `.env.example` file and rename it `.env`. Then add you API key to it.
-3. Once you have it working, pass it a few address to see what the responses look like.
+    - Look up `dotenv` on NPM. You can install it and require it (note that the syntax for this module is slightly different.)
+    - Once that is setup, copy the `.env.example` file and rename it `.env`. Then add your API key to it.
+3. Once you have it working, pass it a few addresses to see what the responses look like.
 4. Make sure to only return an object with lat/lng and not the whole response
 
 ## Exercise 3 - `getCurrentTemperatureAtPosition`
@@ -114,4 +114,4 @@ You can skip the step that says "draw the hangman". Instead, simply count 8 gues
 To make it more fun, integrate the following functionality:
 
 - Allow players to re-play after they won or lost (`inquirer` has a yes/no type of question)
-- Actually draw the hangman using ASCII art
+- Actually, draw the hangman using ASCII art
