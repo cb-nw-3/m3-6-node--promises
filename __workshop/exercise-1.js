@@ -10,8 +10,8 @@ function getIssPosition() {
         .then(jsonObj => {
             const location = JSON.parse(jsonObj);
             return {
-                latitude: location.iss_position.latitude,
-                longitude: location.iss_position.longitude,
+                lat: location.iss_position.latitude,
+                lng: location.iss_position.longitude,
             }
         })
         .then((result) => {console.log(result);
@@ -20,4 +20,6 @@ function getIssPosition() {
         .catch((error) => console.log(error));
 }
 
-getIssPosition();
+// getIssPosition();
+
+module.exports = {getIssPosition};

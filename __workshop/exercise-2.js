@@ -23,12 +23,12 @@ function getAddressPosition(address) {
                 console.log('error', data.status.message);
             }})
         .then(data => {
-            console.log(data);
-            return data;
+            return data.geometry;
         })
         .catch(error => {
             console.log('error', error.message);
         });
     }
 
-getAddressPosition('1150 Van Horne, Montréal, QC H2V 1K2');
+// getAddressPosition('1150 Van Horne, Montréal, QC H2V 1K2');
+module.exports = {getAddressPosition};
