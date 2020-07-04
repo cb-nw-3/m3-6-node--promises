@@ -33,9 +33,33 @@ compareToTen(8)
 const arrayOfWords = ["cucumber", "tomatos", "avocado"];
 const complicatedArray = ["cucumber", 44, true];
 
-const makeAllCaps = (array) => {};
+function allStrings(arr) { //Method checking if array is made of all strings
+  let answer = true;
+  arr.forEach(elem => {if(typeof(elem) !== 'string'){
+    answer = false;
+  }})
+  return answer;
+}
 
-const sortWords = (array) => {};
+const makeAllCaps = (array) => {
+  return new Promise((resolve, reject) => {
+    if(allStrings(array)){
+      resolve(array.map(elem => elem.toUpperCase()));
+    } else {
+      reject('the array is not only made of strings...')
+    }
+  })
+};
+
+const sortWords = (array) => {
+  return new Promise((resolve, reject) => {
+    if(allStrings(array)){
+      resolve(array.sort());
+    } else {
+      reject('Error!');
+    }
+  })
+};
 
 // Calling (testing)
 makeAllCaps(arrayOfWords)
